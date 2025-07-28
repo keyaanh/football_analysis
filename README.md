@@ -108,14 +108,8 @@ Usage
 
 - python main.py   `
 
-1.  **Find the output** in output\_videos/output\_video.mp4
+3.  **Find the output** in output\_videos/output\_video.mp4
     
-
-### Custom Configuration
-
-Modify main.py to customize:
-
- # Change input video  video_frames = read_video("input_videos/your_match.mp4")  # Adjust ball assignment sensitivity  player_assigner = PlayerBallAssigner()  player_assigner.max_player_ball_distance = 70  # Adjust threshold  # Use cached tracking data (faster for re-runs)  tracks = tracker.get_object_tracks(video_frames,                                     read_from_stub=True,                                     stub_path="stubs/track_stubs.pkl")   `
 
 Model Training
 --------------
@@ -180,21 +174,6 @@ How It Works
     
 *   Displays real-time ball control percentages
     
-
-Configuration Options
----------------------
-
-### Team Assigner Settings
-
-- # team_assigner.py  class TeamAssigner:      def __init__(self):          self.team_colors = {}  # Stores team color mappings          self.player_team_dict = {}  # Manual player assignments   `
-
-### Ball Assignment Settings
-
--  # player_ball_assigner.py  class PlayerBallAssigner:      def __init__(self):          self.max_player_ball_distance = 70  # Adjust sensitivity   `
-
-### Tracking Settings
-
-- # tracker.py  def detect_frames(self, frames):      batch_size = 20  # Adjust based on GPU memory      # confidence threshold set in model.predict(conf=0.1)   `
 
 Output Format
 -------------
