@@ -1,4 +1,4 @@
-# football_analysisFootball Analysis Project
+# Football Analysis Project
 =========================
 
 An AI-powered football match analysis system that uses YOLO object detection and computer vision techniques to track players, referees, and the ball in football videos. The system automatically assigns team colors, tracks ball possession, and provides real-time match statistics.
@@ -22,14 +22,41 @@ Features
 Project Structure
 -----------------
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   football_analysis/  ├── main.py                     # Main execution script  ├── yolo_inference.py          # YOLO model inference testing  ├── trackers/                  # Player and object tracking modules  │   ├── __init__.py  │   └── tracker.py            # Main tracking logic with ByteTrack  ├── team_assigner/            # Team identification and color assignment  │   ├── __init__.py  │   └── team_assigner.py     # K-means clustering for team colors  ├── player_ball_assigner/     # Ball possession detection  │   ├── __init__.py  │   └── player_ball_assigner.py  ├── utils/                    # Utility functions  │   ├── __init__.py  │   ├── video_utils.py       # Video reading/writing functions  │   └── bbox_utils.py        # Bounding box utility functions  ├── models/                   # Trained YOLO models  │   └── best.pt              # Custom trained model  ├── input_videos/            # Input video files  ├── output_videos/           # Processed output videos  ├── stubs/                   # Cached tracking data  └── runs/                    # Training runs and results   `
+Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   football_analysis/  
+    ├── main.py                     # Main execution script  
+    ├── yolo_inference.py          # YOLO model inference testing  
+    ├── trackers/                  # Player and object tracking modules  
+    │   ├── __init__.py  
+    │   └── tracker.py            # Main tracking logic with ByteTrack  
+    ├── team_assigner/            # Team identification and color assignment  
+    │   ├── __init__.py  
+    │   └── team_assigner.py     # K-means clustering for team colors  
+    ├── player_ball_assigner/     # Ball possession detection  
+    │   ├── __init__.py  
+    │   └── player_ball_assigner.py  
+    ├── utils/                    # Utility functions  
+    │   ├── __init__.py  
+    │   ├── video_utils.py       # Video reading/writing functions  
+    │   └── bbox_utils.py        # Bounding box utility functions  
+    ├── models/                   # Trained YOLO models  
+    │   └── best.pt              # Custom trained model  
+    ├── input_videos/            # Input video files  
+    ├── output_videos/           # Processed output videos  
+    ├── stubs/                   # Cached tracking data  
+    └── runs/                    # Training runs and results   `
 
 Requirements
 ------------
 
 ### Dependencies
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   pip install ultralytics  pip install supervision  pip install opencv-python  pip install pandas  pip install numpy  pip install scikit-learn  pip install pickle5   `
+- pip install ultralytics  
+- pip install supervision  
+- pip install opencv-python  
+- pip install pandas  
+- pip install numpy  
+- pip install scikit-learn  
+- pip install pickle5   `
 
 ### Hardware Requirements
 
@@ -46,19 +73,21 @@ Installation
 1.  **Clone the repository**
     
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   git clone https://github.com/yourusername/football_analysis.git  cd football_analysis   `
+- git clone https://github.com/yourusername/football_analysis.git  
+- cd football_analysis   `
 
-1.  **Create virtual environment**
+2.  **Create virtual environment**
     
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   python -m venv cv_env  source cv_env/bin/activate  # On Windows: cv_env\Scripts\activate   `
+- python -m venv cv_env  source cv_env/bin/activate  # On Windows:
+- cv_env\Scripts\activate   `
 
-1.  **Install dependencies**
+3.  **Install dependencies**
     
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   pip install -r requirements.txt   `
+- pip install -r requirements.txt   `
 
-1.  **Download or train YOLO model**
+4.  **Download or train YOLO model**
     
     *   Place your trained model in models/best.pt
         
@@ -75,7 +104,7 @@ Usage
 2.  **Run the analysis**
     
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   python main.py   `
+- python main.py   `
 
 1.  **Find the output** in output\_videos/output\_video.mp4
     
@@ -84,7 +113,7 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
 
 Modify main.py to customize:
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   # Change input video  video_frames = read_video("input_videos/your_match.mp4")  # Adjust ball assignment sensitivity  player_assigner = PlayerBallAssigner()  player_assigner.max_player_ball_distance = 70  # Adjust threshold  # Use cached tracking data (faster for re-runs)  tracks = tracker.get_object_tracks(video_frames,                                     read_from_stub=True,                                     stub_path="stubs/track_stubs.pkl")   `
+ # Change input video  video_frames = read_video("input_videos/your_match.mp4")  # Adjust ball assignment sensitivity  player_assigner = PlayerBallAssigner()  player_assigner.max_player_ball_distance = 70  # Adjust threshold  # Use cached tracking data (faster for re-runs)  tracks = tracker.get_object_tracks(video_frames,                                     read_from_stub=True,                                     stub_path="stubs/track_stubs.pkl")   `
 
 Model Training
 --------------
@@ -94,17 +123,17 @@ The project includes a Jupyter notebook for training custom YOLO models:
 1.  **Open the training notebook**
     
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   jupyter notebook football_training_yolo_v5.ipynb   `
+- jupyter notebook football_training_yolo_v5.ipynb   `
 
-1.  **Download dataset** (using Roboflow)
+2.  **Download dataset** (using Roboflow)
     
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   from roboflow import Roboflow  rf = Roboflow(api_key="your_api_key")  project = rf.workspace("workspace").project("football-players-detection")  dataset = project.version(1).download("yolov5")   `
+- from roboflow import Roboflow  rf = Roboflow(api_key="your_api_key")  project = rf.workspace("workspace").project("football-players-detection")  dataset = project.version(1).download("yolov5")   `
 
-1.  **Train the model**
+3.  **Train the model**
     
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   yolo task=detect mode=train model=yolov5x.pt data=path/to/data.yaml epochs=100 imgsz=640   `
+- yolo task=detect mode=train model=yolov5x.pt data=path/to/data.yaml epochs=100 imgsz=640   `
 
 How It Works
 ------------
@@ -155,15 +184,15 @@ Configuration Options
 
 ### Team Assigner Settings
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   # team_assigner.py  class TeamAssigner:      def __init__(self):          self.team_colors = {}  # Stores team color mappings          self.player_team_dict = {}  # Manual player assignments   `
+    # team_assigner.py  class TeamAssigner:      def __init__(self):          self.team_colors = {}  # Stores team color mappings          self.player_team_dict = {}  # Manual player assignments   `
 
 ### Ball Assignment Settings
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   # player_ball_assigner.py  class PlayerBallAssigner:      def __init__(self):          self.max_player_ball_distance = 70  # Adjust sensitivity   `
+     # player_ball_assigner.py  class PlayerBallAssigner:      def __init__(self):          self.max_player_ball_distance = 70  # Adjust sensitivity   `
 
 ### Tracking Settings
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   # tracker.py  def detect_frames(self, frames):      batch_size = 20  # Adjust based on GPU memory      # confidence threshold set in model.predict(conf=0.1)   `
+     # tracker.py  def detect_frames(self, frames):      batch_size = 20  # Adjust based on GPU memory      # confidence threshold set in model.predict(conf=0.1)   `
 
 Output Format
 -------------
