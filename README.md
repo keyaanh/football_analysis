@@ -22,28 +22,30 @@ Features
 Project Structure
 -----------------
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`   football_analysis/  
-    ├── main.py                     # Main execution script  
-    ├── yolo_inference.py          # YOLO model inference testing  
-    ├── trackers/                  # Player and object tracking modules  
-    │   ├── __init__.py  
-    │   └── tracker.py            # Main tracking logic with ByteTrack  
-    ├── team_assigner/            # Team identification and color assignment  
-    │   ├── __init__.py  
-    │   └── team_assigner.py     # K-means clustering for team colors  
-    ├── player_ball_assigner/     # Ball possession detection  
-    │   ├── __init__.py  
-    │   └── player_ball_assigner.py  
-    ├── utils/                    # Utility functions  
-    │   ├── __init__.py  
-    │   ├── video_utils.py       # Video reading/writing functions  
-    │   └── bbox_utils.py        # Bounding box utility functions  
-    ├── models/                   # Trained YOLO models  
-    │   └── best.pt              # Custom trained model  
-    ├── input_videos/            # Input video files  
-    ├── output_videos/           # Processed output videos  
-    ├── stubs/                   # Cached tracking data  
-    └── runs/                    # Training runs and results   `
+Plain 
+
+- football_analysis/  
+    - ├── main.py                     # Main execution script  
+    - ├── yolo_inference.py          # YOLO model inference testing  
+    - ├── trackers/                  # Player and object tracking modules  
+    - │   ├── __init__.py  
+    - │   └── tracker.py            # Main tracking logic with ByteTrack  
+    - ├── team_assigner/            # Team identification and color assignment  
+    - │   ├── __init__.py  
+    - │   └── team_assigner.py     # K-means clustering for team colors  
+    - ├── player_ball_assigner/     # Ball possession detection  
+    - │   ├── __init__.py  
+    - │   └── player_ball_assigner.py  
+    - ├── utils/                    # Utility functions  
+    - │   ├── __init__.py  
+    - │   ├── video_utils.py       # Video reading/writing functions  
+    - │   └── bbox_utils.py        # Bounding box utility functions  
+    - ├── models/                   # Trained YOLO models  
+    - │   └── best.pt              # Custom trained model  
+    - ├── input_videos/            # Input video files  
+    - ├── output_videos/           # Processed output videos  
+    - ├── stubs/                   # Cached tracking data  
+    - └── runs/                    # Training runs and results   `
 
 Requirements
 ------------
@@ -184,15 +186,15 @@ Configuration Options
 
 ### Team Assigner Settings
 
-    # team_assigner.py  class TeamAssigner:      def __init__(self):          self.team_colors = {}  # Stores team color mappings          self.player_team_dict = {}  # Manual player assignments   `
+- # team_assigner.py  class TeamAssigner:      def __init__(self):          self.team_colors = {}  # Stores team color mappings          self.player_team_dict = {}  # Manual player assignments   `
 
 ### Ball Assignment Settings
 
-     # player_ball_assigner.py  class PlayerBallAssigner:      def __init__(self):          self.max_player_ball_distance = 70  # Adjust sensitivity   `
+-  # player_ball_assigner.py  class PlayerBallAssigner:      def __init__(self):          self.max_player_ball_distance = 70  # Adjust sensitivity   `
 
 ### Tracking Settings
 
-     # tracker.py  def detect_frames(self, frames):      batch_size = 20  # Adjust based on GPU memory      # confidence threshold set in model.predict(conf=0.1)   `
+- # tracker.py  def detect_frames(self, frames):      batch_size = 20  # Adjust based on GPU memory      # confidence threshold set in model.predict(conf=0.1)   `
 
 Output Format
 -------------
